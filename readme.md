@@ -12,14 +12,17 @@ A patch to tweak the default setting in the openpilot, includes:
 
 ### files
 
+```
 ./
 ├── my.patch # the actuall patch
 ├── update-and-apply.sh
-└── update-openpolit.sh
+└── update-openpilot.sh
+```
+
 
 ### Update and Apply
 
-SSH into the comma ENO, then excute the following commands:
+SSH into the comma ENO, then execute the following commands:
 
 ```sh
 cd /data

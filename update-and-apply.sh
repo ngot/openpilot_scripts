@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
-./update-openpolit.sh
+./update-openpilot.sh
 
 git apply my.patch
