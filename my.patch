@@ -20,6 +20,19 @@ index c2bdf06a..76e5826c 100755
    "dmonitoringmodeld": ("selfdrive/modeld", ["./dmonitoringmodeld"]),
    "modeld": ("selfdrive/modeld", ["./modeld"]),
    "rtshield": "selfdrive.rtshield",
+diff --git a/selfdrive/thermald/power_monitoring.py b/selfdrive/thermald/power_monitoring.py
+index 5d59cf38..78a37e56 100644
+--- a/selfdrive/thermald/power_monitoring.py
++++ b/selfdrive/thermald/power_monitoring.py
+@@ -17,7 +17,7 @@ CAR_BATTERY_CAPACITY_uWh = 30e6
+ CAR_CHARGING_RATE_W = 45
+ 
+ VBATT_PAUSE_CHARGING = 11.0
+-MAX_TIME_OFFROAD_S = 30*3600
++MAX_TIME_OFFROAD_S = 30 # 30 seconds
+ 
+ class PowerMonitoring:
+   def __init__(self):
 diff --git a/selfdrive/thermald/thermald.py b/selfdrive/thermald/thermald.py
 index 843f9fa1..4b9eb030 100755
 --- a/selfdrive/thermald/thermald.py
