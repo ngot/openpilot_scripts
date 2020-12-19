@@ -1,0 +1,37 @@
+diff --git a/selfdrive/manager.py b/selfdrive/manager.py
+index c2bdf06a..76e5826c 100755
+--- a/selfdrive/manager.py
++++ b/selfdrive/manager.py
+@@ -153,7 +153,7 @@ from selfdrive.launcher import launcher
+ # comment out anything you don't want to run
+ managed_processes = {
+   "thermald": "selfdrive.thermald.thermald",
+-  "uploader": "selfdrive.loggerd.uploader",
++# "uploader": "selfdrive.loggerd.uploader",
+   "deleter": "selfdrive.loggerd.deleter",
+   "controlsd": "selfdrive.controls.controlsd",
+   "plannerd": "selfdrive.controls.plannerd",
+@@ -175,7 +175,7 @@ managed_processes = {
+   "sensord": ("selfdrive/sensord", ["./sensord"]),
+   "clocksd": ("selfdrive/clocksd", ["./clocksd"]),
+   "gpsd": ("selfdrive/sensord", ["./gpsd"]),
+-  "updated": "selfdrive.updated",
++# "updated": "selfdrive.updated",
+   "dmonitoringmodeld": ("selfdrive/modeld", ["./dmonitoringmodeld"]),
+   "modeld": ("selfdrive/modeld", ["./modeld"]),
+   "rtshield": "selfdrive.rtshield",
+diff --git a/selfdrive/thermald/thermald.py b/selfdrive/thermald/thermald.py
+index 843f9fa1..4b9eb030 100755
+--- a/selfdrive/thermald/thermald.py
++++ b/selfdrive/thermald/thermald.py
+@@ -31,8 +31,8 @@ NetworkType = log.ThermalData.NetworkType
+ NetworkStrength = log.ThermalData.NetworkStrength
+ CURRENT_TAU = 15.   # 15s time constant
+ CPU_TEMP_TAU = 5.   # 5s time constant
+-DAYS_NO_CONNECTIVITY_MAX = 7  # do not allow to engage after a week without internet
+-DAYS_NO_CONNECTIVITY_PROMPT = 4  # send an offroad prompt after 4 days with no internet
++DAYS_NO_CONNECTIVITY_MAX = 73000  # do not allow to engage after 200 years without internet
++DAYS_NO_CONNECTIVITY_PROMPT = 73000  # send an offroad prompt after 200 years with no internet
+ DISCONNECT_TIMEOUT = 5.  # wait 5 seconds before going offroad after disconnect so you get an alert
+ 
+ prev_offroad_states: Dict[str, Tuple[bool, Optional[str]]] = {}
