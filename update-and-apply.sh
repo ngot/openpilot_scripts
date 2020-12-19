@@ -4,4 +4,4 @@
 
 cd /data/openpilot
 
-git apply my.patch
+git apply /data/openpilot_scripts/my.patch
