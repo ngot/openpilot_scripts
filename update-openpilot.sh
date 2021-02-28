@@ -2,4 +2,4 @@
 
 cd /data
 rm -rf openpilot
-git clone -b master-ci https://github.com/commaai/openpilot
+git clone -b release2 https://github.com/commaai/openpilot
