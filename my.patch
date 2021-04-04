@@ -1,27 +1,20 @@
-diff --git a/selfdrive/manager.py b/selfdrive/manager.py
-index 63b6fdde..34d66495 100755
---- a/selfdrive/manager.py
-+++ b/selfdrive/manager.py
-@@ -153,7 +153,7 @@ from selfdrive.launcher import launcher
- # comment out anything you don't want to run
- managed_processes = {
-   "thermald": "selfdrive.thermald.thermald",
--  "uploader": "selfdrive.loggerd.uploader",
-+  # "uploader": "selfdrive.loggerd.uploader",
-   "deleter": "selfdrive.loggerd.deleter",
-   "controlsd": "selfdrive.controls.controlsd",
-   "plannerd": "selfdrive.controls.plannerd",
-@@ -173,7 +173,7 @@ managed_processes = {
-   "camerad": ("selfdrive/camerad", ["./camerad"]),
-   "sensord": ("selfdrive/sensord", ["./sensord"]),
-   "clocksd": ("selfdrive/clocksd", ["./clocksd"]),
--  "updated": "selfdrive.updated",
-+  # "updated": "selfdrive.updated",
-   "dmonitoringmodeld": ("selfdrive/modeld", ["./dmonitoringmodeld"]),
-   "modeld": ("selfdrive/modeld", ["./modeld"]),
-   "rtshield": "selfdrive.rtshield",
+diff --git a/selfdrive/manager/process_config.py b/selfdrive/manager/process_config.py
+index f0ae7da2..f03ec9e3 100644
+--- a/selfdrive/manager/process_config.py
++++ b/selfdrive/manager/process_config.py
+@@ -32,8 +32,8 @@ procs = [
+   PythonProcess("thermald", "selfdrive.thermald.thermald", persistent=True),
+   PythonProcess("timezoned", "selfdrive.timezoned", enabled=TICI, persistent=True),
+   PythonProcess("tombstoned", "selfdrive.tombstoned", enabled=not PC, persistent=True),
+-  PythonProcess("updated", "selfdrive.updated", enabled=not PC, persistent=True),
+-  PythonProcess("uploader", "selfdrive.loggerd.uploader", persistent=True),
++  # PythonProcess("updated", "selfdrive.updated", enabled=not PC, persistent=True),
++  # PythonProcess("uploader", "selfdrive.loggerd.uploader", persistent=True),
+ ]
+ 
+ managed_processes = {p.name: p for p in procs}
 diff --git a/selfdrive/thermald/power_monitoring.py b/selfdrive/thermald/power_monitoring.py
-index c790f8d6..18bd4a7a 100644
+index 485ebd2d..f0860382 100644
 --- a/selfdrive/thermald/power_monitoring.py
 +++ b/selfdrive/thermald/power_monitoring.py
 @@ -17,7 +17,7 @@ CAR_BATTERY_CAPACITY_uWh = 30e6
@@ -34,10 +27,10 @@ index c790f8d6..18bd4a7a 100644
  class PowerMonitoring:
    def __init__(self):
 diff --git a/selfdrive/thermald/thermald.py b/selfdrive/thermald/thermald.py
-index 3c2eace8..a37536f9 100755
+index 9f769801..7e7767f8 100755
 --- a/selfdrive/thermald/thermald.py
 +++ b/selfdrive/thermald/thermald.py
-@@ -30,8 +30,8 @@ NetworkType = log.DeviceState.NetworkType
+@@ -32,8 +32,8 @@ NetworkType = log.DeviceState.NetworkType
  NetworkStrength = log.DeviceState.NetworkStrength
  CURRENT_TAU = 15.   # 15s time constant
  CPU_TEMP_TAU = 5.   # 5s time constant
